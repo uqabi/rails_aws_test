@@ -30,7 +30,7 @@ gem 'jquery-rails'
 gem 'carrierwave', '~> 1.0'
 #gem 'font-awesome-sass', '~> 5.8.1'
 # Use ActiveStorage variant
- gem 'mini_magick', '~> 4.8'
+ gem 'mini_magick', '~> 4.9'
 group :development, :test do
 	gem 'sqlite3'
 end
