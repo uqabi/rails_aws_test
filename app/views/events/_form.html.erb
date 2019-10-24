@@ -1,0 +1,25 @@
+	<%= render 'form_errors',object: @event %>
+	<%= form_for(@event) do |f| %>
+	   <%= f.label :name %>
+	   <%= f.text_field :name %>
+	   <%= f.label :location %>
+	   <%= f.text_field :location %>
+	   <%= f.label :description %>
+	   <%= f.text_field :description %>
+	   <%= f.datetime_select(:starts_at, order: [:day,:month,:year]) %>
+	   <br><br>
+	   <%= f.label :categories %>:
+	   <br>
+	   <%= f.collection_check_boxes(:category_ids,Category.all,:id,:name) %>
+	   <br><br>
+	   <%= f.label :image %>
+	   <%= f.file_field :image %>
+	   <hr>
+	   <% if @event.name == nil %>
+	   <%= f.submit 'Add',:class => 'btn btn-primary btn-lg' %>
+	   <% else %>
+	   	<%= f.submit 'Update',:class => 'btn btn-primary btn-lg' %>
+	   	<% end %>
+ <% end %>
+
+					

@@ -1,0 +1,50 @@
+<!-- banner -->
+	<div class="banner">
+		<%= render "header" %>
+		<div class="agileinfo-top-heading">
+			<h2>Contact Us</h2>
+		</div>
+	</div>
+	<!-- //banner -->
+	<!-- contact -->
+	<div class="contact">
+		<div class="container">
+
+			<div class="agile-contact-form">
+				<% if flash[:notice] %>
+				  <p class="flash_msg_notice"><%= flash[:notice] %></p>
+				<% end %>
+				<% if flash[:alert] %>
+				  <p class="flash_msg_alert"><%= flash[:alert] %></p>
+				<% end %>
+				<div class="col-md-6 contact-form-left">
+					<div class="w3layouts-contact-form-top">
+						<h3>Get in touch</h3>
+						<p>If you would like to find out more about how we can help you, please give us a call or drop us an email.We welcome your comments and suggestions about this website and/or any other issues that you wish to raise.</p>
+					</div>
+					<div class="agileits-contact-address">
+						<ul>
+							<li><i class="fa fa-phone" aria-hidden="true"></i> <span>+923065086321</span></li>
+							<li><i class="fa fa-phone fa-envelope" aria-hidden="true"></i> <span><a href="mailto:example@email.com">mail@eventspk.com</a></span></li>
+							<li><i class="fa fa-map-marker" aria-hidden="true"></i> <span>Civic Center, Phase 4,Bahria Town, Islamabad, Pakistan.</span></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-6 contact-form-right">
+					<div class="contact-form-top">
+						<h3>Send us a message</h3>
+					</div>
+					<div class="agileinfo-contact-form-grid">
+						<%= render 'contact_form' %>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			
+			<div class="w3agile-map">
+				<h3>Find us here</h3>
+				<iframe src="https://www.google.com/maps/d/embed?mid=1eirAH1J8COzlYvYs0KkjkTAtz0I" width="640" height="480"></iframe>
+			</div>
+		</div>
+	</div>
+	<!-- //contact -->

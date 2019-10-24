@@ -1,0 +1,5 @@
+<%= form_tag(event_comments_path(@event)) do %>
+ <%= label_tag :comment %>
+ <%= text_area_tag :comment %>
+ <%= submit_tag "Submit Comment" %>
+<% end %>

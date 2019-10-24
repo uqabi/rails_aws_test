@@ -1,0 +1,30 @@
+<div class="posts">
+		<div class="container">
+			<div class="w3-agileits-heading">
+				<h3>Upcoming <span>Events</span></h3>
+			</div>
+			<div class="posts-grids">
+				<% @upcoming_events.each do |event| %>
+				<div class="col-md-4 w3-agile-post-grids w3-agileits-services-grid">
+					<div class="w3-agile-post-img" style="background: url(<%= image_url event.image %>) no-repeat 0px 0px;">
+						<a href="<%= event_path(event) %>">
+							<ul style="min-width: 110px">
+								<li><%= event.starts_at.strftime("%B") %>
+</li>
+								<li><%= event.starts_at.strftime("%d") %></li>
+							</ul>
+						</a>
+					</div>
+					<div class="w3-agile-post-info">
+						<h4><a href="single.html"><%= truncate(event.name,length: 38, separator: '') %></a></h4>
+						<p><%= truncate(event.description,length: 50, :separator => ',') %></p>
+					</div>
+
+				</div><!-- end-->
+             
+				<% end %>
+				 <div class="clearfix"> </div>
+				
+			</div>
+		</div>
+	</div>

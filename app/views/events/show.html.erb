@@ -1,0 +1,159 @@
+<!-- banner -->
+	<div class="banner">
+		<%= render "header" %>
+		<div class="agileinfo-top-heading">
+			<h2><%= @event.name %></h2>
+		</div>
+	</div>
+	<!-- //banner -->
+	<!-- Blog -->
+		<div class="blog">
+			<div class="container">
+				<!-- single -->
+				<div class="single">
+						<div class="single-grid">
+							<div class="col-md-8 w3ls-blog-left">
+								<div class="w3-blog-left-grid">
+									<div class="w3ls-blog-leftl">
+										<h4>NOV <span>15</span></h4>
+										<a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;<%= @event.likes_count %></a>
+									</div>
+									<div class="w3ls-blog-leftr">
+										<% if flash[:notice] %>
+										  <p class="flash_msg_notice"><%= flash[:notice] %></p>
+										<% end %>
+										<% if flash[:alert] %>
+										  <p class="flash_msg_alert"><%= flash[:alert] %></p>
+										<% end %>
+										<% if @current_like.blank? == true %>
+												<i class='fa fa-thumbs-up'></i>&nbsp;<%= link_to "Like", event_likes_path(@event), method: :post %>
+												<% else %>
+												<i class='fa fa-thumbs-down'></i> <%= link_to "Unlike", event_like_path(@event), method: :delete %>
+												<% end %>
+												<span class="link_right">
+													<i class='fa fa-edit'></i>
+												<%= link_to "Edit Event", edit_event_path(@event),class: 'button', method: :get, :class => "lnk" %> </span>&nbsp;
+												&nbsp; 
+												<span class="link_right">
+													<i class='fa fa-trash'></i>
+											<%= link_to "Delete Event", event_path(@event), method: :delete, data: { confirm: "Are you sure you want to delete?" }, :class => "lnk" %>
+										</span>
+											<span class="link_right">
+											<i class='fa fa-user-plus'></i><%= link_to "Register Now!", event_registrations_path(@event), method: :post, :class => "lnk" %>
+										</span>
+												<hr>
+										<img src="<%= image_url @event.image %>" alt=" " class="img-responsive" />
+										<h3><%= @event.name %></h3>
+										<p><%= @event.description %></p>
+										<ul>
+											<li><a href="#"><i class="glyphicon glyphicon-comment" aria-hidden="true"></i><%= @event.comments.size %> comments</a></li>
+											<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i>
+												<%= pluralize(@event.registrations.size,'Registration') %></a></li>
+											
+										<a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp;<%= @event.location %></a>
+										</li>
+										</ul>
+										
+										
+									</div>
+									<div class="clearfix"> </div>
+									<% if @event.comments.blank? != true %>
+									<div class="response">
+										<h4>Comments</h4>
+										<% @event.comments.each do |comment| %>
+										<div class="media response-info">
+											<div class="media-left response-text-left">
+												<a href="#">
+													<img class="media-object" src="<%= image_url 'icon1.png' %>" alt=""/>
+												</a>
+												<h5><a href="#"><%= comment.user.name %></a></h5>
+											</div>
+											<div class="media-body response-text-right">
+												<p><%= comment.comment %></p>
+												<ul>
+													<li><%= comment.created_at.strftime("%B %d, %Y") %></li>
+						
+												</ul>
+											
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+										<% end %>
+									</div>	
+									<% end %>
+									<div class="coment-form">
+										<h4>Leave your comment</h4>
+
+										<% if flash[:form_errors] %>
+										<ul class="errors">
+											<% flash[:form_errors].each do |error| %>
+											<li><%= error %></li>
+											<% end %>
+										</ul>
+										<% end %>
+										<%= render "comment_form" %>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 w3-agile-blog-right">
+								<% if @event.categories.blank? != true %>
+								<h3>Categories</h3>
+								<ul>
+									<% @event.categories.each do |cat| %>
+									<li><a href="#"><%= cat.name %></a></li>
+									<% end %>
+								</ul>
+								<% end %>
+								<div class="agile-info-recent">
+									<h3>Recent Events</h3>
+									<div class="w3ls-recent-grids">
+										<% @recent_events.each do |e| %>
+										<div class="w3l-recent-grid">
+											<div class="wom">
+												<a href="<%= event_path(e) %>"><img src="<%= image_url e.image %>" alt=" " class="img-responsive" /></a>
+											</div>
+											<div class="wom-right">
+												<h4><a href="<%= event_path(e) %>"><%= e.name %></a></h4>
+												<p><%= truncate(e.description, length: 74, separator: '') %></p>
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+										<% end %>
+										
+										
+									</div>
+								</div>
+							<!-- 	<div class="footer-top-grid1">
+									<h3>Tags</h3>
+									<ul class="w3-tag2">
+										<li><a href="#">Wedding</a></li>
+										<li><a href="#">Rings</a></li>
+										<li><a href="#">Costumes</a></li>
+										<li><a href="#">Dinner</a></li>
+										<li><a href="#">Groomsman</a></li>
+										<li><a href="#">Bridesmaid</a></li>
+										<li><a href="#">Wedding</a></li>
+										<li><a href="#">Rings</a></li>
+										<li><a href="#">Costumes</a></li>
+										<li><a href="#">Dinner</a></li>
+										<li><a href="#">Groomsman</a></li>
+										<li><a href="#">Bridesmaid</a></li>
+										<li><a href="#">Wedding</a></li>
+										<li><a href="#">Rings</a></li>
+										<li><a href="#">Costumes</a></li>
+										<li><a href="#">Dinner</a></li>
+										<li><a href="#">Groomsman</a></li>
+										<li><a href="#">Bridesmaid</a></li>
+									</ul>
+								</div> -->
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+				</div>
+				<!-- //single -->
+			</div>
+		</div>
+		<!-- // Blog -->
+	
+
+<!-- //here ends scrolling icon -->

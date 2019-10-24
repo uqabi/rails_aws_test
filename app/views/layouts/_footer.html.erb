@@ -1,0 +1,57 @@
+<footer>
+		<div class="agileits-w3layouts-footer-top">
+			<div class="container">
+				<div class="col-md-6 agileits-w3layouts-footer-top-left">
+					<p><i class="fa fa-phone" aria-hidden="true"></i> +923065086321</p>
+				</div>
+				<div class="col-md-6 agileits-w3layouts-footer-top-left">
+					<p><i class="fa fa-envelope" aria-hidden="true"></i> Email :<a href="mailto:example@email.com"> mail@eventspk.com</a></p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<div class="agileits-footer-bottom">
+			<div class="container">
+				<div class="agileits-footer-bottom-grids">
+					<div class="col-md-6 footer-bottom-left">
+						<h5>Top Event</h5>
+						<div class="footer-img-grids">
+							<% if @event_of_the_month.blank? != true %>
+							<div class="footer-img">
+								<%= image_tag @event_of_the_month.image.url %>
+							</div>
+							<% end %>
+							<% if @event_of_the_month.blank? != true %>
+							<div class="footer-img-info">
+								<p><%= truncate(@event_of_the_month.description,length: 200, separator: '') %></p>
+							</div>
+							<% end %>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+					<div class="col-md-3 footer-bottom-right">
+						<h5>About</h5>
+						<p>We use the best of both worlds to help leaders find best possible partners for their projects. Our mission is to attract top influential minds in one place to let them discuss their common interests, and build a ground for solid relationships and new contracts.</p>
+						
+					</div>
+					<div class="col-md-3 footer-bottom-right">
+						<h5>We are social</h5>
+						<div class="agileinfo-social-grids">
+							<ul>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-rss"></i></a></li>
+								<li><a href="#"><i class="fa fa-vk"></i></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+		<div class="copyright">
+			<div class="container">
+				<p>© 2017 Events Venue. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+			</div>
+		</div>
+	</footer>

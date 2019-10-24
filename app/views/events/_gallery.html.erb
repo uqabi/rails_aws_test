@@ -1,0 +1,36 @@
+<!-- gallery -->
+	<div class="gallery">
+		<div class="container"> 
+			<div id="jzBox" class="jzBox">
+				<div id="jzBoxNextBig"></div>
+				<div id="jzBoxPrevBig"></div>
+				<img src="#" id="jzBoxTargetImg" alt=""/>
+				<div id="jzBoxBottom">
+					<div id="jzBoxTitle"></div>
+					<div id="jzBoxMoreItems">
+						<div id="jzBoxCounter"></div>
+						<i class="arrow-left" id="jzBoxPrev"></i> 
+						<i class="arrow-right" id="jzBoxNext"></i> 
+					</div>
+					<i class="close" id="jzBoxClose"></i>
+				</div>
+			</div>
+			<div class="gallery-grids-row">
+				<% @events.each do |e| %>
+				<div class="col-md-4 gallery-grid">
+					<div class="wpf-demo-4">  
+						<a href="<%= image_url e.image.url %>" class="jzBoxLink item-hover" title="Events Venue">  
+							<img src="<%= image_url e.image.url %>" alt=" " class="img-responsive" />
+							<div class="view-caption">
+								<p>Full View</p>
+							</div> 
+						</a>    		
+					</div>
+				</div>
+				<% end %>
+				<div class="clearfix"> </div>
+			</div>
+			<script src="http://localhost:3000/js/jzBox.js"></script>
+		</div>
+	</div>
+	<!-- //gallery -->

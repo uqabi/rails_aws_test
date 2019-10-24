@@ -1,0 +1,34 @@
+<div class="welcome">
+		<div class="container">
+			<div class="welcome-grids">
+				<div class="col-md-6 w3ls-welcome-left">
+					<a href="<%= event_path(@event_of_the_month) %>">
+					<div class="w3ls-welcome-left-img" 
+
+					<% if @event_of_the_month.blank? != true %>
+					style="background: url(<%= image_url @event_of_the_month.image.url %>) no-repeat 0px 0px;"
+					>
+					<% end %>						
+					</div>
+				</a>
+				</div>
+				<div class="col-md-6 w3ls-welcome-right">
+					<div class="w3ls-welcome-right-info">
+						<h2>Event of <span>the month</span></h2>
+						<% if @event_of_the_month.blank? != true %>
+						<h3><%= link_to @event_of_the_month.name, event_path(@event_of_the_month) %></h3>
+						<p><%= @event_of_the_month.description %></span></p>
+						<% end %>
+					</div>
+					<div class="agileits-border">
+						<div class="agileinfo-red"> </div>
+						<div class="agileinfo-red agileinfo-green"> </div>
+						<div class="agileinfo-red agileinfo-blue"> </div>
+						<div class="agileinfo-red agileinfo-yellow"> </div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div
