@@ -27,7 +27,7 @@ gem 'jbuilder', '~> 2.5'
  gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 #gem 'font-awesome-sass', '~> 5.8.1'
 # Use ActiveStorage variant
  gem 'mini_magick', '~> 4.8'
